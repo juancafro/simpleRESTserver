@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleRESTServer", "SimpleRESTServer\SimpleRESTServer.csproj", "{602434F1-2947-4F05-8251-676A02DACCAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{602434F1-2947-4F05-8251-676A02DACCAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602434F1-2947-4F05-8251-676A02DACCAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602434F1-2947-4F05-8251-676A02DACCAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602434F1-2947-4F05-8251-676A02DACCAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5171068D-19A9-40BA-B932-EB510540D647}
+	EndGlobalSection
+EndGlobal
