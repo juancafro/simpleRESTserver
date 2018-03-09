@@ -32,7 +32,7 @@ namespace SimpleRESTServer.DAL
                     cmd.Parameters.AddWithValue("@param5", p.EndDate);
                     dbcontext.Open();
                     int a = (int)cmd.ExecuteScalar();
-                    Console.WriteLine(a);
+                    dbcontext.Close();
                     return a;
                 }
                 catch (Exception ex) {
@@ -82,9 +82,12 @@ namespace SimpleRESTServer.DAL
                 dbcontext.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 list = new List<Person>();
+                int i = 0;
                 try {
                     while (reader.Read())
                     {
+                        i = +1;
+                        Console.WriteLine(i);
                         IDataRecord row = (IDataRecord)reader;
                         Person person = new Person();
                         person.Id = (int)row[0];
@@ -94,26 +97,66 @@ namespace SimpleRESTServer.DAL
                         person.StartDate = (DateTime)row[4];
                         person.EndDate = (DateTime)row[5];
                         list.Add(person);
-                        return (IEnumerable<Person>)list; 
                     }
                     reader.Close();
-                } catch (SqlException ex) {
+                    return (IEnumerable<Person>)list;
+
+                }
+                catch (SqlException ex) {
                     throw;
+                    
                 }
 
-                return (IEnumerable<Person>)list;
 
             }
         }
 
         public void Remove(int id)
         {
+            using (SqlConnection dbcontext = new SqlConnection(connectionstr)) {
+                string sql = @"delete from dbo.person
+                               where id = @id";
+                SqlCommand cmd = new SqlCommand(sql,dbcontext);
+                cmd.Parameters.AddWithValue("@id",id);
+                Console.WriteLine(cmd.Parameters[0]);
+                dbcontext.Open();
+                cmd.ExecuteNonQuery();
+                dbcontext.Close();
 
+            }
         }
 
         public bool Update(Person p)
         {
-            throw new NotImplementedException();
+                try
+                {
+                using (SqlConnection dbcontext = new SqlConnection(connectionstr))
+                {
+                    string sql = @"update dbo.person
+                               set Name = @Name ,LastName = @LastName , PayRate = @PayRate , StartDate = @StartDate ,EndDate = @EndDate
+                               where id = @id";
+                    SqlCommand cmd = new SqlCommand(sql, dbcontext);
+                    cmd.Parameters.AddWithValue("@Name", p.Name);
+                    cmd.Parameters.AddWithValue("@LastName", p.LastName);
+                    cmd.Parameters.AddWithValue("@PayRate", p.PayRate);
+                    cmd.Parameters.AddWithValue("@StartDate", p.StartDate);
+                    cmd.Parameters.AddWithValue("@EndDate", p.EndDate);
+                    cmd.Parameters.AddWithValue("@Id", p.Id);
+
+                    dbcontext.Open();
+                    cmd.ExecuteNonQuery();
+                    dbcontext.Close();
+                    return true;
+                }
+                }
+                catch (Exception ex) {
+
+                    return false;
+
+                }
+
         }
+
+
     }
 }

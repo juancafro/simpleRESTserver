@@ -1,4 +1,5 @@
-﻿using SimpleRESTServer.DAL;
+﻿using Dapper;
+using SimpleRESTServer.DAL;
 using SimpleRESTServer.Models;
 using System;
 using System.Collections.Generic;
@@ -39,14 +40,20 @@ namespace SimpleRESTServer.Controllers
         }
 
         // PUT: api/Person/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Person p)
         {
+            PersonRepository repo = new PersonRepository();
+            Console.WriteLine(id);
+            repo.Update(p);
 
         }
 
         // DELETE: api/Person/5
         public void Delete(int id)
         {
+            Console.WriteLine(id);
+            PersonRepository repo = new PersonRepository();
+            repo.Remove(id);
 
         }
     }

@@ -67,3 +67,5 @@ C:\Users\jsanchez\source\repos\SimpleRESTServer\SimpleRESTServer\obj\Debug\Simpl
 C:\Users\jsanchez\source\repos\SimpleRESTServer\SimpleRESTServer\obj\Debug\SimpleRESTServer.csproj.CopyComplete
 C:\Users\jsanchez\source\repos\SimpleRESTServer\SimpleRESTServer\obj\Debug\SimpleRESTServer.dll
 C:\Users\jsanchez\source\repos\SimpleRESTServer\SimpleRESTServer\obj\Debug\SimpleRESTServer.pdb
+C:\Users\jsanchez\source\repos\SimpleRESTServer\SimpleRESTServer\bin\Dapper.dll
+C:\Users\jsanchez\source\repos\SimpleRESTServer\SimpleRESTServer\bin\Dapper.xml
